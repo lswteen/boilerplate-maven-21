@@ -1,0 +1,71 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: mobileid
+  profiles:
+    active: local
+
+  datasource:
+    url: jdbc:h2:~/h2db/mobileid;AUTO_SERVER=TRUE;LOCK_TIMEOUT=10000;TRACE_LEVEL_FILE=0
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    hikari:
+      maximum-pool-size: 30
+      connection-timeout: 30000
+      minimum-idle: 10
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: PUBLIC
+    defer-datasource-initialization: true
+    open-in-view: false
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.lottecard: DEBUG
+    org.springdoc: INFO
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    org.hibernate.type.descriptor.sql: TRACE
+    org.hibernate.stat: INFO
+    org.springframework.orm.jpa: INFO
+    org.springframework.transaction: INFO
+
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        incloude: ["health","refresh","env"]
+      cors:
+        allowed-origins: "*"
+        allowed-methods: GET
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
