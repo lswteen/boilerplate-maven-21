@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Developer Guide: Project Architecture & Execution</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide {
+            background-color: white;
+            width: 800px;
+            height: 600px;
+            margin-bottom: 40px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .slide h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .slide h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        .slide ul {
+            line-height: 1.6;
+        }
+
+        .slide code {
+            background-color: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .slide pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        .slide pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .slide table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .slide th,
+        .slide td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .slide th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .slide blockquote {
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+            padding-left: 15px;
+            color: #555;
+            background-color: #eaf2f8;
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .slide-footer {
+            margin-top: auto;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            text-align: right;
+            color: #999;
+            font-size: 0.8em;
+        }
+
+        /* Navigation (Optional) */
+        nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Slide 1 -->
+    <div class="slide" id="slide1">
+        <h2>슬라이드 1: 프로젝트 아키텍처 개요</h2>
+
+        <h3>현 상태: 멀티 모듈 모놀리스</h3>
+        <p>이 프로젝트는 유지보수성과 관심사 분리를 위해 단일 모듈에서 <strong>Maven 멀티 모듈</strong> 구조로 리팩토링되었습니다.</p>
+
+        <h3>모듈 구조</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>모듈</th>
+                    <th>역할</th>
+                    <th>의존성</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>core</strong></td>
+                    <td><strong>도메인 계층</strong>. 공통 DTO, 유틸리티.</td>
+                    <td>없음</td>
+                </tr>
+                <tr>
+                    <td><strong>api</strong></td>
+                    <td><strong>서비스 계층</strong>. 비즈니스 로직 및 API 엔드포인트.</td>
+                    <td><code>core</code>에 의존</td>
+                </tr>
+                <tr>
+                    <td><strong>spa</strong></td>
+                    <td><strong>애플리케이션 계층</strong>. 웹 진입점, UI, 설정.</td>
+                    <td><code>api</code>에 의존</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <strong>핵심</strong>: 코드는 논리적으로 분리되어 있지만, <code>spa</code> 모듈에 의해 관리되는 <strong>단일 실행 가능한 JAR</strong>로 빌드됩니다.
+        </blockquote>
+        <div class="slide-footer">Page 1</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide" id="slide2">
+        <h2>슬라이드 2: 실행 메커니즘 및 흐름</h2>
+
+        <h3>동작 방식</h3>
+        <ul>
+            <li><strong>빌드 단계</strong>: 부모 POM이 빌드를 관리합니다. <code>core</code>와 <code>api</code>는 JAR 라이브러리로 컴파일됩니다.</li>
+            <li><strong>패키징 단계</strong>: <code>spa</code> 모듈이 이 라이브러리들을 최종 JAR 내부의 <code>BOOT-INF/lib</code>에 번들링합니다.
+            </li>
+            <li><strong>런타임</strong>: JVM은 <code>spa</code>의 메인 클래스(<code>AiaApplication</code>)를 실행하며,
+                <code>api</code>와 <code>spa</code> 패키지의 컴포넌트를 스캔합니다.</li>
+        </ul>
+
+        <h3>데이터 흐름</h3>
+        <pre><code>
+사용자 (브라우저/HTTP) 
+  --> SPA 모듈 (Controller/View) 
+    --> API 모듈 (Service) 
+      --> Core 모듈 (DTO)
+        </code></pre>
+        <div class="slide-footer">Page 2</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide" id="slide3">
+        <h2>슬라이드 3: 개발자 명령어 (CLI)</h2>
+
+        <h3>1. 빌드 (필수)</h3>
+        <p>모듈 간 의존성이 있으므로, 먼저 로컬 Maven 저장소에 설치해야 합니다.</p>
+        <pre><code>./mvnw clean install</code></pre>
+
+        <h3>2. 애플리케이션 실행 (개발 모드)</h3>
+        <p><code>spa</code> 모듈에서 Spring Boot 애플리케이션을 실행합니다.</p>
+        <pre><code># -pl spa : Project List 'spa' (특정 모듈 대상)
+./mvnw spring-boot:run -pl spa</code></pre>
+
+        <h3>3. 프로덕션 실행</h3>
+        <pre><code># 8080 포트로 실행 (기본값)
+java -jar spa/target/aia-spa-0.0.1-SNAPSHOT.jar
+
+# 사용자 지정 포트로 실행
+java -jar -Dserver.port=9090 spa/target/aia-spa-0.0.1-SNAPSHOT.jar</code></pre>
+        <div class="slide-footer">Page 3</div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide" id="slide4">
+        <h2>슬라이드 4: 신규 기능: Mock API 및 대시보드</h2>
+
+        <h3>구현된 기능</h3>
+        <ol>
+            <li>
+                <strong>Mock API 엔드포인트</strong>
+                <ul>
+                    <li><strong>URL</strong>: <code>GET /api/mocks</code></li>
+                    <li><strong>로직</strong>: 하드코딩된 <code>MockData</code> 객체 목록을 반환합니다.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>웹 대시보드</strong>
+                <ul>
+                    <li><strong>URL</strong>: <code>GET /aia/dashboard</code></li>
+                    <li><strong>뷰</strong>: Thymeleaf 템플릿 (<code>dashboard-view.html</code>).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>개발자 실행 항목</h3>
+        <ul>
+            <li><code>spa</code> / <code>api</code>에 <code>spring-boot-starter-web</code> 및 <code>thymeleaf</code> 의존성이
+                필요한지 확인하세요.</li>
+            <li><code>core</code>나 <code>api</code> 코드를 변경한 후에는 항상 <code>mvn install</code>을 실행하여 <code>spa</code>에
+                반영하세요.</li>
+        </ul>
+        <div class="slide-footer">Page 4</div>
+    </div>
+
+    <nav>
+        <a href="#slide1">1</a>
+        <a href="#slide2">2</a>
+        <a href="#slide3">3</a>
+        <a href="#slide4">4</a>
+    </nav>
+</body>
+
+</html>
