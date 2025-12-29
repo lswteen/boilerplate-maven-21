@@ -60,6 +60,19 @@ boilerplate-maven-21
 └── spa  (웹 애플리케이션, 실행 가능 JAR)
 ```
 
+## SBOM
+```text
+SBOM Generation Configured
+
+The cyclonedx-maven-plugin has been added. Running mvn package will now automatically generate SBOM files in JSON format.
+
+Generated SBOM Location:
+
+Root: target/classes/META-INF/sbom/application.cdx.json
+Modules: {module}/target/classes/META-INF/sbom/application.cdx.json
+This JSON file contains the full Bill of Materials for your project, suitable for vulnerability analysis.
+```
+
 ## 실행 메커니즘 (Execution Mechanism)
 
 이 프로젝트는 멀티 모듈로 구성되어 있지만, 실행 시에는 **Monolithic Architecture**로 동작합니다.
