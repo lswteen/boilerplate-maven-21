@@ -4,7 +4,7 @@
   "serialNumber" : "urn:uuid:0258090e-60dc-3670-823a-e82172f4c871",
   "version" : 1,
   "metadata" : {
-    "timestamp" : "2025-12-29T09:11:07Z",
+    "timestamp" : "2025-12-29T09:38:00Z",
     "tools" : [
       {
         "vendor" : "OWASP Foundation",
@@ -93,35 +93,35 @@
       "hashes" : [
         {
           "alg" : "MD5",
-          "content" : "8d012ca304eff2e2e4ff461107f7c18c"
+          "content" : "001e8f5fe48803bf78d85070a69c97e5"
         },
         {
           "alg" : "SHA-1",
-          "content" : "ed56d1565381a68a9ab9ab83f351324d27d87a8b"
+          "content" : "dc56af3e875ad638698ec8e0d7ac3aadf34b5e1d"
         },
         {
           "alg" : "SHA-256",
-          "content" : "9b2145c130b50f5e0f5f15ae013d563bfaf73e0c9e37d5e37d62e43ffc006572"
+          "content" : "54bb2004b7d89234c127c5803bd9d233ed6db905c8c3daeb41d515fe8fe04a5d"
         },
         {
           "alg" : "SHA-512",
-          "content" : "c90a805a5f9de11dd4efdc9d54ccb8d6b856c0f367633ed33cc480fba67f35bce7be3cc90e2263e9ce86c42e3e7967296526942ddce12dd68e2609d0aa3bfb9f"
+          "content" : "048e530ce19718d5c34a45ac517fb0e32fd58414b2f7ee5600ea083dbecb8f8dcc66ace02a9379d7912199931b126b2bc9b258661c5215193fb3d5505de52c69"
         },
         {
           "alg" : "SHA-384",
-          "content" : "e0cb65cedce9aef5edf926e988d75f8a3113c106925c0f227ea88d4065e05b7f6fd2309212164b87d77ec994a5e02fc0"
+          "content" : "f2246ddcd9f69c270a7e55a695e82fc694c8e60b0f8b808305f52d08ce47f880a431a0170643c01c43e6ee9742162bfb"
         },
         {
           "alg" : "SHA3-384",
-          "content" : "66fcda2fba3e07ad148a6885ea7171bb62d73438ec4c7282c12d167b7b5d90da53be4535419cbd23d62ec0e9338ac549"
+          "content" : "e2191b927b9581db1d2399a5ea40a5307fed207edcda4c884bde353c065e19b275c87373d037520b8f1ac97d0f853ac2"
         },
         {
           "alg" : "SHA3-256",
-          "content" : "6105a29e8e2501a47ca06b89234e32c16924bb3ed86ab07991741f74213af7af"
+          "content" : "589ab56cacf839ee0c29276bd609ca364983d28fa96504e7c8185c1e1d552997"
         },
         {
           "alg" : "SHA3-512",
-          "content" : "89f277fffc90584dadebfaf5e7b7691d5d912e624ea3c6d7c0aa1bae155cae8d772bbe031c6269f2a04baaa89e930db22ebe95b26b0f1fd056e73507465e62f2"
+          "content" : "2897d716ed5af0b73280c94a258cc88fafed14f6e9eec24bf2e621c46dd699b0ad348dc17ea910b797ca26acadb4e45410ca682f473847e3f2c1abe160932510"
         }
       ],
       "licenses" : [
@@ -2423,6 +2423,132 @@
       ],
       "type" : "library",
       "bom-ref" : "pkg:maven/org.springframework/spring-expression@6.2.15?type=jar"
+    },
+    {
+      "group" : "org.projectlombok",
+      "name" : "lombok",
+      "version" : "1.18.42",
+      "description" : "Spice up your java: Automatic Resource Management, automatic generation of getters, setters, equals, hashCode and toString, and more!",
+      "scope" : "optional",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "f29149836e0187fb9fd95d82dc718d36"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "8365263844ebb62398e0dc33057ba10ba472d3b8"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "3488a4e9994c26596baaceebee58cad36a50e3bdaec5be72b5834d3c3b560306"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "7ddad4f59705bde29a1fe818fbd28fac0fcf9e83eee08b2fd16af24ff2cd3afe93643b0b9ddbfdf0fe9fa999b5a23348a5fe45e41f4a9c543909beadf48be794"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "c93fee1dd47988ff6d9bc0a84dec31650abdfb6ec9d9cf076434b62b118a0b06544ebb3d3bf3796962cb890f66e876ea"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "967d7555c30f8d40d2de38c64c96f6a865a6465953db712e55818cb1f0f47eb002561159ed21f2d5e31db4c76430433d"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "291e591c341b4b370365c63e616210831fcfed09239d28ce1b459e15d851c3fc"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "daaa58823eda466fdd12ab325ace764d0166011965e42520e3145fd28a55547a5b9f4ea0ea487ee80bce33121546e33b8bde103004e033f5996758589e8cde43"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "MIT"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.projectlombok/lombok@1.18.42?type=jar",
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://projectlombok.org"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/projectlombok/lombok/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "http://github.com/projectlombok/lombok"
+        }
+      ],
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.projectlombok/lombok@1.18.42?type=jar"
+    },
+    {
+      "group" : "org.mapstruct",
+      "name" : "mapstruct",
+      "version" : "1.6.3",
+      "description" : "An annotation processor for generating type-safe bean mappers",
+      "scope" : "required",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "3662b4f7a5abfb4f233e6b0dba5d3070"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "416a2155212286d6a1c4cb3bb553c7dfd6a1a092"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "00b52467f31d482f8673b0b74306f4be0a305cdce31e587bc1b3d7bf779f1dbf"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "e051d49058c974ea56795bb978e0daf82cbec72a4012611dd76bc9b3874f991dd9e11e420a628930dea97654f4bd3e5ce504c50c2bb43f802ec68e3347d5b620"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "4b7a3e6d0288016bf8fa1b875911a42bd7d695bcf2a1d5ccc497e2caacb58e0ebeb82ac2916617d786c0c0b3056fea83"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "20c5087a70b3a6fa2305eb57ce0a7793412b2e0bfea01d940049dc6b5c86bcca158595119dd0c4478d50311cb50086fb"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "3a3b804ae940504fa6322cd1ed0571dcd6adb1f5c6d7b173a3753a318e58ae8d"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "37f104fcfa7c22681ec165a6de54f8f267fe62ac73d958dfdfe54e27fdb756fe1f152d910b29f8b0a339ce78696812704bf86396a36950a9674c107a1b7397aa"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.mapstruct/mapstruct@1.6.3?type=jar",
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://mapstruct.org/mapstruct/"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/mapstruct/mapstruct/mapstruct/"
+        }
+      ],
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.mapstruct/mapstruct@1.6.3?type=jar"
     }
   ],
   "dependencies" : [
@@ -2430,7 +2556,9 @@
       "ref" : "pkg:maven/com.farfarcoder/aia-api@0.0.1-SNAPSHOT?type=jar",
       "dependsOn" : [
         "pkg:maven/com.farfarcoder/aia-core@0.0.1-SNAPSHOT?type=jar",
-        "pkg:maven/org.springframework.boot/spring-boot-starter-web@3.5.9?type=jar"
+        "pkg:maven/org.springframework.boot/spring-boot-starter-web@3.5.9?type=jar",
+        "pkg:maven/org.projectlombok/lombok@1.18.42?type=jar",
+        "pkg:maven/org.mapstruct/mapstruct@1.6.3?type=jar"
       ]
     },
     {
@@ -2660,6 +2788,14 @@
         "pkg:maven/org.springframework/spring-expression@6.2.15?type=jar",
         "pkg:maven/org.springframework/spring-web@6.2.15?type=jar"
       ]
+    },
+    {
+      "ref" : "pkg:maven/org.projectlombok/lombok@1.18.42?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.mapstruct/mapstruct@1.6.3?type=jar",
+      "dependsOn" : [ ]
     }
   ]
 }

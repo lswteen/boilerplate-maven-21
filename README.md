@@ -34,7 +34,7 @@ maven java21 springboot3.5.8
 #### 4 kill
 lsof -t -i :8080 | xargs kill -9
 
-#### 4. Executable JAR 실행 (Production)
+#### 5. Executable JAR 실행 (Production)
 빌드된 JAR 파일을 직접 실행합니다. 포트를 지정할 수 있습니다.
 
 **기본 실행:**
@@ -71,6 +71,14 @@ Generated SBOM Location:
 Root: target/classes/META-INF/sbom/application.cdx.json
 Modules: {module}/target/classes/META-INF/sbom/application.cdx.json
 This JSON file contains the full Bill of Materials for your project, suitable for vulnerability analysis.
+```
+
+## Swagger UI 연동 완료
+```text
+spa 모듈에 Swagger UI가 성공적으로 통합되었습니다.
+
+URL: http://localhost:8080/swagger-ui/index.html
+구성: springdoc-openapi-starter-webmvc-ui 라이브러리를 사용했으며, OpenApiConfig로 기본 정보를 설정했습니다.
 ```
 
 ## 실행 메커니즘 (Execution Mechanism)

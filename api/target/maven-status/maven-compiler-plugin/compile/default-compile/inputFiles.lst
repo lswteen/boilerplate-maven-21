@@ -1,3 +1,5 @@
 /Users/milk/workspace/boilerplate-maven-21/api/src/main/java/com/farfarcoder/aia/api/controller/MockApiController.java
 /Users/milk/workspace/boilerplate-maven-21/api/src/main/java/com/farfarcoder/aia/api/domain/MockData.java
+/Users/milk/workspace/boilerplate-maven-21/api/src/main/java/com/farfarcoder/aia/api/mapper/MockMapper.java
+/Users/milk/workspace/boilerplate-maven-21/api/src/main/java/com/farfarcoder/aia/api/model/MockModel.java
 /Users/milk/workspace/boilerplate-maven-21/api/src/main/java/com/farfarcoder/aia/api/service/MockService.java

@@ -1,3 +1,4 @@
-com/farfarcoder/aia/spa/controller/PptController.class
-com/farfarcoder/aia/AiaApplication.class
 com/farfarcoder/aia/spa/controller/DashboardController.class
+com/farfarcoder/aia/spa/controller/PptController.class
+com/farfarcoder/aia/spa/config/OpenApiConfig.class
+com/farfarcoder/aia/AiaApplication.class

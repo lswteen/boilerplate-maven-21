@@ -1,6 +1,8 @@
 package com.farfarcoder.aia.api.service;
 
 import com.farfarcoder.aia.api.domain.MockData;
+import com.farfarcoder.aia.api.mapper.MockMapper;
+import com.farfarcoder.aia.api.model.MockModel;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,10 +13,28 @@ import java.util.UUID;
 public class MockService {
 
     public List<MockData> getMockDataList() {
-        List<MockData> list = new ArrayList<>();
-        list.add(new MockData(UUID.randomUUID().toString(), "Mock Item 1", "Description for item 1"));
-        list.add(new MockData(UUID.randomUUID().toString(), "Mock Item 2", "Description for item 2"));
-        list.add(new MockData(UUID.randomUUID().toString(), "Mock Item 3", "Description for item 3"));
-        return list;
+        List<MockModel> mockModels = new ArrayList<>();
+        mockModels.add(MockModel.builder()
+                .id(UUID.randomUUID().toString())
+                .name("Mock Item 1")
+                .description("Description for item 1")
+                .internalCode("INT-001")
+                .build());
+        mockModels.add(MockModel.builder()
+                .id(UUID.randomUUID().toString())
+                .name("Mock Item 2")
+                .description("Description for item 2")
+                .internalCode("INT-002")
+                .build());
+        mockModels.add(MockModel.builder()
+                .id(UUID.randomUUID().toString())
+                .name("Mock Item 3")
+                .description("Description for item 3")
+                .internalCode("INT-003")
+                .build());
+
+        return mockModels.stream()
+                .map(MockMapper.INSTANCE::toData)
+                .toList();
     }
 }

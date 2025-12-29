@@ -1,3 +1,8 @@
-com/farfarcoder/aia/api/domain/MockData.class
+com/farfarcoder/aia/api/domain/MockData$MockDataBuilder.class
+com/farfarcoder/aia/api/mapper/MockMapperImpl.class
 com/farfarcoder/aia/api/controller/MockApiController.class
+com/farfarcoder/aia/api/mapper/MockMapper.class
+com/farfarcoder/aia/api/model/MockModel.class
+com/farfarcoder/aia/api/domain/MockData.class
+com/farfarcoder/aia/api/model/MockModel$MockModelBuilder.class
 com/farfarcoder/aia/api/service/MockService.class

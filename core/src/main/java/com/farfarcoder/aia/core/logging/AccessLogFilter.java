@@ -40,15 +40,22 @@ public class AccessLogFilter extends OncePerRequestFilter {
 
             String requestBody = new String(requestWrapper.getContentAsByteArray(), StandardCharsets.UTF_8)
                     .replaceAll("\\s+", " "); // Minimize whitespace
-            String responseBody = new String(responseWrapper.getContentAsByteArray(), StandardCharsets.UTF_8)
-                    .replaceAll("\\s+", " ");
+
+            String responseBody;
+            String uri = request.getRequestURI();
+            if (uri.startsWith("/api")) {
+                responseBody = new String(responseWrapper.getContentAsByteArray(), StandardCharsets.UTF_8)
+                        .replaceAll("\\s+", " ");
+            } else {
+                responseBody = "[SKIP]";
+            }
 
             log.info(
                     "appno:1000 | requestId:{} | clientIp:{} | useragent:{} | uri:{} | method:{} | status:{} | duration:{}ms | requestbody:{} | responsebody:{}",
                     requestId,
                     getClientIp(request),
                     request.getHeader("User-Agent"),
-                    request.getRequestURI(),
+                    uri,
                     request.getMethod(),
                     response.getStatus(),
                     duration,
