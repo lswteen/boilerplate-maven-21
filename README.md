@@ -30,6 +30,10 @@ maven java21 springboot3.5.8
 ./mvnw spring-boot:run -pl spa
 ```
 
+
+#### 4 kill
+lsof -t -i :8080 | xargs kill -9
+
 #### 4. Executable JAR 실행 (Production)
 빌드된 JAR 파일을 직접 실행합니다. 포트를 지정할 수 있습니다.
 

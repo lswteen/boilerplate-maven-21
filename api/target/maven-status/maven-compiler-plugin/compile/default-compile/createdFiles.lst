@@ -1,2 +1,3 @@
+com/farfarcoder/aia/api/domain/MockData.class
 com/farfarcoder/aia/api/controller/MockApiController.class
 com/farfarcoder/aia/api/service/MockService.class

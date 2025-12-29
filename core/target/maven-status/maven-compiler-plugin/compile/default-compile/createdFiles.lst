@@ -1,1 +1,2 @@
-com/farfarcoder/aia/core/domain/MockData.class
+com/farfarcoder/aia/core/exception/GlobalExceptionHandler.class
+com/farfarcoder/aia/core/logging/AccessLogFilter.class

@@ -1,6 +1,6 @@
 package com.farfarcoder.aia.api.service;
 
-import com.farfarcoder.aia.core.domain.MockData;
+import com.farfarcoder.aia.api.domain.MockData;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

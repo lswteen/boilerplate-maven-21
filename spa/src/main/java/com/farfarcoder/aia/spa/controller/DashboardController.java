@@ -1,7 +1,7 @@
 package com.farfarcoder.aia.spa.controller;
 
 import com.farfarcoder.aia.api.service.MockService;
-import com.farfarcoder.aia.core.domain.MockData;
+import com.farfarcoder.aia.api.domain.MockData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

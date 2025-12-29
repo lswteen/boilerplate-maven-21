@@ -1,4 +1,4 @@
-package com.farfarcoder.aia.core.domain;
+package com.farfarcoder.aia.api.domain;
 
 public class MockData {
     private String id;
